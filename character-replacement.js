@@ -31,10 +31,10 @@ words(description);*/
 
 let str = '.inputWrite {\n' +
     '  display: block;\n' +
-    '  border: 10px solid #40424c;\n' +
     '  background: #1f2127;\n' +
     '  color: #bcbfc5;\n' +
     '  width: 100%;\n' +
+    '  border: 10px solid #40424c;\n' +
     '  padding: 10px;\n' +
     '  font-size: 16px;\n' +
     '}';
@@ -71,25 +71,37 @@ function camelize(str) {
     let borderTwoStringFirsPart = border.map((item, index) =>
         index === 0 ? item : item.slice(0)).join('borderWidth');
 
+   /* let borderWidth = borderTwoStringFirsPart.split('borderWidth');
+    let highlightDigit = borderWidth.map((item, index) =>
+        index === 0 ? item : item.slice(0, 5)).join('borderWidth');*/
+
+    // console.log('Первая часть', highlightDigit);
+
+    let borderWidthSecond = borderTwoStringFirsPart.split('borderWidth:');
+    let borderWidthAfterNumber = borderWidthSecond.map((item, index) =>
+        index === 0 ? item : item.slice(5, 16)).join('borderBottomColor: ');
+
+    console.log('Вторая часть', borderWidthAfterNumber);
+
+    let lattice = borderWidthAfterNumber.split('#');
+    let quotationLattice = lattice.map((item, index) =>
+        index === 0 ? item : item.slice()).join('"#');
+
+    // console.log('quotationLattice часть', quotationLattice);
+
+    let borderWidthSecondSuper = borderWidthSecond.map((item, index) =>
+        item.slice(4, 16) + item.slice(0)).join('borderBottomColor: ');
+    console.log('borderWidthSecondSuper22222222', borderWidthSecondSuper);
+
+
     /*let borderTwoStringSecondPart = border.map((item, index) =>
         index === 0 ? item : item.slice(10, item.length)).join('borderWidth');
 
     let commonBorder = borderTwoStringFirsPart + borderTwoStringSecondPart;*/
 
-
-
-
     // перенести border в начало трансформации
 
-
-
-
-
-
-
-
-
-    function colorwww () {
+    /*function colorwww () {
         let someColor = [];
         let color = borderTwoStringFirsPart.split(',');
         // color.filter(e => { if (e === 'borderWidth') someColor.push(e)});
@@ -102,7 +114,7 @@ function camelize(str) {
 
         console.log(someColor);
     }
-    colorwww();
+    colorwww();*/
 
     let oldColor;
     // let borderColor = color.split('borderWidth');
