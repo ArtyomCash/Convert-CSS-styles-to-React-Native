@@ -39,7 +39,7 @@ let str = '.inputWrite {\n' +
     '  font-size: 16px;\n' +
     '}';
 
-console.log(str);
+// console.log(str);
 
 function camelize(str) {
     let newStr = str.split('-');
@@ -66,10 +66,16 @@ function camelize(str) {
     let solidDelite = solid.map((item, index) =>
         index === 0 ? item : item.slice(1)).join('');
 
-
     let border = solidDelite.split('border');
     let borderTwoStringFirsPart = border.map((item, index) =>
         index === 0 ? item : item.slice(0)).join('borderWidth');
+
+    let borderWidth = borderTwoStringFirsPart.split('borderWidth');
+    let justBordrder = borderWidth.map((item, index) =>
+            item.slice(5, 15)).join('borderWidth:');
+
+
+    console.log('justBordrder>>>', justBordrder);
 
     /*let borderTwoStringSecondPart = border.map((item, index) =>
         index === 0 ? item : item.slice(10, item.length)).join('borderWidth');
@@ -89,7 +95,7 @@ function camelize(str) {
 
 
 
-    function colorwww () {
+   /* function colorwww () {
         let someColor = [];
         let color = borderTwoStringFirsPart.split(',');
         // color.filter(e => { if (e === 'borderWidth') someColor.push(e)});
@@ -102,9 +108,9 @@ function camelize(str) {
 
         console.log(someColor);
     }
-    colorwww();
+    colorwww();*/
 
-    let oldColor;
+    // let oldColor;
     // let borderColor = color.split('borderWidth');
     // console.log('borderColor<<<<<<<',borderColor);
     /*let borderColor = color.map((giveColor, index) =>
