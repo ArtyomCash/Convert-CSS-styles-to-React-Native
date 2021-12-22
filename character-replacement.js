@@ -71,31 +71,35 @@ function camelize(str) {
                              item.slice(0)).join('borderWidth: \n' +
                                                  '  borderColor');
 
-   /* let borderWidth = borderTwoStringFirsPart.split('borderWidth');
-    let justBordrder = borderWidth.map((item, index) =>
-            item.slice(5, 15)).join('borderWidth: \n' +
-                                    '  borderColor: ');*/
+    let borderColorSplit = borderTwoStringFirsPart.split('borderColor');
+    let borderWidth = borderColorSplit.map((item, index) =>
+                      item.substr(3, 2));
 
+    /*let numberWidth = borderWidth.map((item, index) =>
+                    Number(item));*/
+
+    let superNumber = [];
+    let numberWidth = borderWidth.map((val) => {
+        if(!!+val) superNumber.push(val);
+    });
+
+/*    function numberWidthrr(numberWidth) {
+        let truNumber = 0;
+        numberWidth.map((val) => {
+            if(!!+val) truNumber = val
+        });
+        return console.log('11111110000000>>>>',truNumber);
+    }
+    numberWidthrr(borderWidth)*/;
+    console.log('numberWidth', superNumber);
+    console.log('borderColorSplit>>>>>>', borderWidth);
+
+    /*for (let char of borderColorSplit) {
+        borderColorSplit.indexOf('#');
+        console.log('char1111111111', char);
+    }*/
 
     console.log('justBordrder>>>', borderTwoStringFirsPart);
-
-    /*let borderTwoStringSecondPart = border.map((item, index) =>
-        index === 0 ? item : item.slice(10, item.length)).join('borderWidth');
-
-    let commonBorder = borderTwoStringFirsPart + borderTwoStringSecondPart;*/
-
-
-
-
-    // перенести border в начало трансформации
-
-
-
-
-
-
-
-
 
    /* function colorwww () {
         let someColor = [];
