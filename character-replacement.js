@@ -29,14 +29,16 @@ words(description);*/
     '}';*/
 
 
-let str = '.inputWrite {\n' +
-    '  display: block;\n' +
-    '  border: 10px solid #40424c;\n' +
-    '  background: #1f2127;\n' +
-    '  color: #bcbfc5;\n' +
-    '  width: 100%;\n' +
+let str = '.changeBtn {\n' +
     '  padding: 10px;\n' +
-    '  font-size: 16px;\n' +
+    '  width: 100%;\n' +
+    '  background-color: #1f2127;\n' +
+    '  border-radius: 3px;\n' +
+    '  border: 3px solid #c49426;\n' +
+    '  font-size: 24px;\n' +
+    '  text-transform: uppercase;\n' +
+    '  color: #c49426;\n' +
+    '  cursor: pointer;\n' +
     '}';
 
 // console.log(str);
@@ -75,63 +77,26 @@ function camelize(str) {
     let borderWidth = borderColorSplit.map((item, index) =>
                       item.substr(3, 2));
 
-    /*let numberWidth = borderWidth.map((item, index) =>
-                    Number(item));*/
-
     let superNumber = [];
     let numberWidth = borderWidth.map((val) => {
-        if(!!+val) superNumber.push(val);
+        if(!!+val) superNumber.push(`"${+val}",`);
     });
 
-/*    function numberWidthrr(numberWidth) {
-        let truNumber = 0;
-        numberWidth.map((val) => {
-            if(!!+val) truNumber = val
-        });
-        return console.log('11111110000000>>>>',truNumber);
-    }
-    numberWidthrr(borderWidth)*/;
-    console.log('numberWidth', superNumber);
-    console.log('borderColorSplit>>>>>>', borderWidth);
+    let borderWidthNumber = borderTwoStringFirsPart.split('borderWidth:');
+    let widthBorder = borderWidthNumber.map(e =>
+        e.slice(0)).join('borderWidth: ' + superNumber);
 
-    /*for (let char of borderColorSplit) {
-        borderColorSplit.indexOf('#');
-        console.log('char1111111111', char);
-    }*/
+    /*let findLattice = widthBorder.split('borderColor:');
+    let deleteLattice = findLattice.map(e =>
+        e[1] + e.slice(5)).join('borderColor: ');*/
 
-    console.log('justBordrder>>>', borderTwoStringFirsPart);
+    let findBorderColor = widthBorder.split('borderColor:');
+    let deleteBorderColor = findBorderColor.map((item, index) =>
+        index === 0 ? item : item.slice(5)).join('borderColor: "');
 
-   /* function colorwww () {
-        let someColor = [];
-        let color = borderTwoStringFirsPart.split(',');
-        // color.filter(e => { if (e === 'borderWidth') someColor.push(e)});
-        color.map((e, index) => {
-            // if(index === 1) someColor.push(e);
-            if(e === 'borderWidth') someColor.push(e);
-        });
+    let oneQuoteSecond = deleteBorderColor.replace(/\"/g, "\'");
 
-        console.log('color', color);
-
-        console.log(someColor);
-    }
-    colorwww();*/
-
-    // let oldColor;
-    // let borderColor = color.split('borderWidth');
-    // console.log('borderColor<<<<<<<',borderColor);
-    /*let borderColor = color.map((giveColor, index) =>
-          if(giveColor)
-           /!* console.log('giveColor>>>>>', giveColor)
-                giveColor.split();*!/
-
-
-    );*/
-
-    // console.log('color>>>', color);
-    /*let borderColor = color.map((item, index) =>
-        index === 0 ? item : item.slice(0)).join('borderColor');*/
-
-    return borderTwoStringFirsPart;
+    return oneQuoteSecond;
 
 }
 console.log(camelize(str));
