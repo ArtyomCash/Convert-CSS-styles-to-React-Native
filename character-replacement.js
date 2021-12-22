@@ -68,14 +68,16 @@ function camelize(str) {
 
     let border = solidDelite.split('border');
     let borderTwoStringFirsPart = border.map((item, index) =>
-        index === 0 ? item : item.slice(0)).join('borderWidth');
+                             item.slice(0)).join('borderWidth: \n' +
+                                                 '  borderColor');
 
-    let borderWidth = borderTwoStringFirsPart.split('borderWidth');
+   /* let borderWidth = borderTwoStringFirsPart.split('borderWidth');
     let justBordrder = borderWidth.map((item, index) =>
-            item.slice(5, 15)).join('borderWidth:');
+            item.slice(5, 15)).join('borderWidth: \n' +
+                                    '  borderColor: ');*/
 
 
-    console.log('justBordrder>>>', justBordrder);
+    console.log('justBordrder>>>', borderTwoStringFirsPart);
 
     /*let borderTwoStringSecondPart = border.map((item, index) =>
         index === 0 ? item : item.slice(10, item.length)).join('borderWidth');
